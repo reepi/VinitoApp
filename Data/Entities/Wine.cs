@@ -9,9 +9,10 @@ namespace Data.Entities
 {
     public class Wine
     {
+        [Required]
         public int Id { get; set; }
         // El nombre del vino, requerido
-        [Required]
+        
         public string Name { get; set; } = string.Empty;
         // Variedad del vino (ej: Cabernet Sauvignon)
         public string Variety { get; set; } = string.Empty;
