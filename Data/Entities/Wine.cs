@@ -21,6 +21,7 @@ namespace Data.Entities
         public string Region { get; set; } = string.Empty;
 
         // Cantidad disponible en stock, debe ser mayor o igual a 0
+        //Preguntar por el stock?
         private int _stock;
         public int Stock
         {
@@ -50,5 +51,4 @@ namespace Data.Entities
             Stock -= amount;
         }
     }
-}
 }
