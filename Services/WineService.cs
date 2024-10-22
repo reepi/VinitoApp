@@ -29,7 +29,6 @@ namespace Services
         {
             Wine newWine = new Wine()
             {
-                Id = _wineRepo.Wines.Count + 1,
                 Name = vinoDelController.Name,
                 Variety = vinoDelController.Variety,
                 Region = vinoDelController.Region,

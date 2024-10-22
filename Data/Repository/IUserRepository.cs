@@ -4,8 +4,7 @@ namespace Data.Repository
 {
     public interface IUserRepository
     {
-        List<User> Users { get; set; }
-
         void addUser(User userForAdd);
+        public User? Get(string username);
     }
 }

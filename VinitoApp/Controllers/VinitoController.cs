@@ -1,4 +1,5 @@
 ﻿using Common.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -7,6 +8,7 @@ namespace VinitoApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class VinitoController : ControllerBase
     {
         #region Inyecction de WineService
@@ -36,7 +38,7 @@ namespace VinitoApp.Controllers
                 //CreatedAt se crea solo, con el valor por defecto de cuando corro el metodo
             };
             int vinoNuevoId = _wineService.addWine(newWine); //Guardo el ID para hacer algo con el front
-            return Created();
+            return Ok(vinoNuevoId);
         }
 
         [HttpPut("{wineId}")]
@@ -48,12 +50,10 @@ namespace VinitoApp.Controllers
                 NewStock = cantidad
             };
             var bandera = _wineService.modifyStock(wineForModify);
-            if (bandera)
-            {
+            if (bandera) {
                 return Ok();
             }
-            else
-            {
+            else {
                 return BadRequest();
             }
         }

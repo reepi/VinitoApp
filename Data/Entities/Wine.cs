@@ -10,6 +10,7 @@ namespace Data.Entities
     public class Wine
     {
         [Required]
+        [Key]
         public int Id { get; set; }
         // El nombre del vino, requerido
         

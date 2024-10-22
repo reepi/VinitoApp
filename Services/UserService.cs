@@ -24,13 +24,20 @@ namespace Services
             //El Service se encarga de pasar el DTO a entidad
             User newUser = new User()
             {
-                Id = _userRepo.Users.Count() + 1, //Le asigna un ID
                 Username = userForCreate.Username,
                 Password = userForCreate.Password
             };
             _userRepo.addUser(newUser);
 
             return newUser.Id;
+        }
+
+        public User? AuthenticateUser(string username, string password)
+        {
+            User? userToReturn = _userRepo.Get(username);
+            if (userToReturn is not null && userToReturn.Password == password)
+                return userToReturn;
+            return null;
         }
     }
 }

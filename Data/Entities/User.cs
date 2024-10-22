@@ -9,6 +9,7 @@ namespace Data.Entities
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
 
         // Nombre de usuario, requerido y único
